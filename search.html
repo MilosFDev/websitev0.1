@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Js</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter+Tight&display=swap");
+
+      * {
+        font-family: inter tight;
+      }
+    </style>
+  </head>
+  <body class="w-screen min-h-full bg-gray-900">
+    <div class="container my-8 flex flex-col items-center justify-center">
+      <input
+        type="text"
+        class="search w-3/4 h-12 bg-gray-700 p-4 outline-none rounded-md mb-6"
+        placeholder="Search Anything..."
+        onchange="search()"
+        onkeydown="search()"
+        onkeyup="search()"
+        onkeypress="search()"
+      />
+      <div
+        class="options relative w-3/4 h-auto rounded-md overflow-hidden"
+      ></div>
+    </div>
+
+    <script>
+      // data for search
+      const options = [
+        {
+          name: "YG-300 Projektor",
+          url: "http://phpetsva.epizy.com/products/yg-300-projector.html",
+        },
+        {
+          name: "Zamit",
+          url: "https://delicious.com",
+        },
+        {
+          name: "Lotlux",
+          url: "https://soundcloud.com",
+        },
+        {
+          name: "Tresom",
+          url: "https://earthlink.net",
+        },
+        {
+          name: "Holdlamis",
+          url: "https://drupal.org",
+        },
+        {
+          name: "Sonsing",
+          url: "https://pinterest.com",
+        },
+        {
+          name: "Rank",
+          url: "https://mapy.cz",
+        },
+        {
+          name: "Namfix",
+          url: "https://businesswire.com",
+        },
+        {
+          name: "Fix San",
+          url: "http://ocn.ne.jp",
+        },
+        {
+          name: "Biodex",
+          url: "https://symantec.com",
+        },
+        {
+          name: "Stringtough",
+          url: "https://blogs.com",
+        },
+        {
+          name: "Vagram",
+          url: "http://tripadvisor.com",
+        },
+        {
+          name: "Konklux",
+          url: "https://intel.com",
+        },
+        {
+          name: "Pannier",
+          url: "https://cyberchimps.com",
+        },
+        {
+          name: "Flowdesk",
+          url: "http://about.me",
+        },
+        {
+          name: "Tres-Zap",
+          url: "https://nba.com",
+        },
+        {
+          name: "Zoolab",
+          url: "http://yandex.ru",
+        },
+        {
+          name: "Subin",
+          url: "https://apache.org",
+        },
+        {
+          name: "Greenlam",
+          url: "http://columbia.edu",
+        },
+        {
+          name: "Bigtax",
+          url: "http://nih.gov",
+        },
+      ];
+
+      const optionsEL = document.querySelector(".options");
+      options.forEach((i) => {
+        let option = document.createElement("a");
+        option.classList.add(
+          "option",
+          "h-12",
+          "bg-gray-700",
+          "text-white",
+          "block",
+          "border-b",
+          "border-gray-600",
+          "flex",
+          "items-center",
+          "px-4"
+        );
+        option.innerHTML = i.name;
+        option.setAttribute("href", i.url);
+        optionsEL.appendChild(option);
+      });
+    </script>
+    <script>
+      // search function
+
+      const optionsEls = document.querySelectorAll(".option");
+      const searchEl = document.querySelector(".search");
+
+      const search = () =>
+        optionsEls.forEach(
+          (e) =>
+            (e.style.display =
+              e.innerHTML.toUpperCase().indexOf(searchEl.value.toUpperCase()) >
+              -1
+                ? ""
+                : "none")
+        );
+    </script>
