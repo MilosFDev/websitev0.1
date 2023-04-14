@@ -9,8 +9,32 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter+Tight&display=swap");
 
+
       * {
         font-family: inter tight;
+      }
+
+      .option {
+        height: 1200px;
+        width: 100%;
+        background-color: #4a5568;
+        color: #f7fafc;
+        border-bottom: 1px solid #2d3748;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .option:hover {
+        background-color: #2d3748;
+      }
+
+      .option img {
+        height: 60px;
+        width: 60px;
+        margin-right: 20px;
+        border-radius: 50%;
       }
     </style>
   </head>
@@ -18,17 +42,18 @@
     <div class="container my-8 flex flex-col items-center justify-center">
       <input
         type="text"
-        class="search w-3/4 h-12 bg-gray-700 p-4 outline-none rounded-md mb-6"
-        placeholder="Search Anything..."
+        class="search w-3/4 h-15 bg-gray-700 p-4 outline-none rounded-md mb-6"
+        placeholder="Pretrazite proizvode ..."
         onchange="search()"
         onkeydown="search()"
         onkeyup="search()"
         onkeypress="search()"
       />
       <div
-        class="options relative w-3/4 h-auto rounded-md overflow-hidden"
+        class="options relative w-5/6 h-auto rounded-md overflow-hidden"
       ></div>
     </div>
+    
 
     <script>
       // data for search
@@ -36,6 +61,7 @@
         {
           name: "YG-300 Projektor",
           url: "http://phpetsva.epizy.com/products/yg-300-projector.html",
+          img: "https://phpetsva.epizy.com/products/imagees/products/yg-300-projector/projector-yg300.jpg"
         },
         {
           name: "Zamit",
@@ -120,7 +146,7 @@
         let option = document.createElement("a");
         option.classList.add(
           "option",
-          "h-12",
+          "h-20",
           "bg-gray-700",
           "text-white",
           "block",
@@ -128,14 +154,24 @@
           "border-gray-600",
           "flex",
           "items-center",
-          "px-4"
+          "px-10"
         );
-        option.innerHTML = i.name;
+        option.innerHTML = '<img src="' + i.img + '" class="mr-4 h-12 w-12">' + i.name;
+
         option.setAttribute("href", i.url);
+        
+
+        
         optionsEL.appendChild(option);
+        let img = document.createElement("img");
+  img.src = i.img;
+  img.alt = i.name;
+  img.classList.add("w-10", "h-20", "ml-4");
       });
+      
     </script>
     <script>
+
       // search function
 
       const optionsEls = document.querySelectorAll(".option");
