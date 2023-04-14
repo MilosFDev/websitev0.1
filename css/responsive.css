@@ -40,7 +40,9 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .navigation.navbar-dark .navbar-nav .nav-link {
+    .navigation.navbar-dark .navbar-nav .nav-link
+    #search-box {
+        display: inline-block; {
         padding: 0px 9px;
     }
     .banner_main {

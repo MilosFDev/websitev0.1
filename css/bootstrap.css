@@ -1785,6 +1785,8 @@ pre code {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+    #search-box {
+      display: none;
   }
   .table-responsive-lg > .table-bordered {
     border: 0;
