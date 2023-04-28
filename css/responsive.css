@@ -39,7 +39,7 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 100px) and (max-width: 991px) {
     .navigation.navbar-dark .navbar-nav .nav-link
     #search-box {
         display: inline-block; {
